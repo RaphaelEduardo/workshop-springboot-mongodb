@@ -15,18 +15,12 @@ import com.example.workshopmongo.services.UserService;
 @RequestMapping(value="/users")
 public class UserResource {
 	
-	// application <-> controller -> service -> repository
 	@Autowired 
 	private UserService userService;
 	
-	/*
-	 * ResponseEntity vai encapsular toda uma estrutura necessaria 
-	 * para retornar respostas http (com possiveis cabeçalhos, erros, etc).
-	 */
-	
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<User>> findAll() {
-		List<User> list = userService.findAll(); // vai buscar no bd
+		List<User> list = userService.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	

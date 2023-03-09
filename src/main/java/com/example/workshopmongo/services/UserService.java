@@ -11,7 +11,6 @@ import com.example.workshopmongo.repositories.UserRepository;
 @Service
 public class UserService {
 
-	// Para instanciar automaticamente um objeto.
 	@Autowired 
 	private UserRepository userRepository;
 	

@@ -5,10 +5,6 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-/*
- * n precisa passar a colecao, o spring ja faz
- *  automaticamente se n colocar
- */
 @Document(collection="user")
 public class User implements Serializable {
 	
