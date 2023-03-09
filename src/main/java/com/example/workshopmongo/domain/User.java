@@ -2,10 +2,19 @@ package com.example.workshopmongo.domain;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+/*
+ * n precisa passar a colecao, o spring ja faz
+ *  automaticamente se n colocar
+ */
+@Document(collection="user")
+public class User implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	private String id;
 	private String name;
 	private String email;
