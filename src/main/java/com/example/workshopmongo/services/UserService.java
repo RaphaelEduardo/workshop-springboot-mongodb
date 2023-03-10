@@ -31,6 +31,12 @@ public class UserService {
 		return userRepository.insert(obj);
 	}
 	
+	public void delete(String id) {
+		userRepository.deleteById(id);
+	}
+	
+	
+	
 	/*
 	 *  Aplicado aqui (inves de no UserDTO) para facilitar 
 	 *  manutencoes no futuro que possam ter acesso a dados.
