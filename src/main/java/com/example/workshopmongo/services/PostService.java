@@ -1,5 +1,6 @@
 package com.example.workshopmongo.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,12 @@ public class PostService {
 	public List<Post> findByTitle(String text) {
 		// return postRepository.findByTitleContainingIgnoreCase(text);
 		return postRepository.SearchTitle(text);
+	}
+	
+	public List<Post> fullSearch(String text, Date minDate, Date maxDate) {
+		//Adicionado um "dia" ao maxDate (para poder abranger até 24h daquele dia, e não as 00h daquele dia) - 24h em milisegundos
+		maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000);
+		return postRepository.fullSearch(text, minDate, maxDate);
 	}
 	
 }
