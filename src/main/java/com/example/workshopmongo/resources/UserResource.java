@@ -54,11 +54,9 @@ public class UserResource {
 		return ResponseEntity.created(uri).build();
 	}
 
-	// N esta lancando a excecao 404 (so 204) -- corrigir
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable String id) {
 		userService.delete(id);
-		// Cod 204
 		return ResponseEntity.noContent().build();
 	}
 

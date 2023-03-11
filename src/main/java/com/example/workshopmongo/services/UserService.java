@@ -32,9 +32,14 @@ public class UserService {
 	}
 	
 	public void delete(String id) {
-		userRepository.deleteById(id);
-	}
-	
+		// Correcao para lancar excecao se o id n for valido (cod 404)
+		if (userRepository.existsById(id)) {
+			userRepository.deleteById(id);
+		} else {
+			throw new ObjectNotFoundException("Objeto não encontrado");
+		}
+	}	
+		
 	public User update(User obj) {
 		User newObj = findById(obj.getId());
 		updateData(newObj, obj);
